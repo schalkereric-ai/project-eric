@@ -26,9 +26,20 @@ class AppServiceProvider extends ServiceProvider
             $email = strtolower(trim((string) $request->input('email')));
 
             return [
-                Limit::perMinute(5)->by('registration:ip:' . $request->ip()),
+                Limit::perMinute(5)->by(
+                    'registration:ip:' . $request->ip()
+                ),
+
                 Limit::perMinute(3)->by(
                     'registration:email:' . hash('sha256', $email)
+                ),
+            ];
+        });
+
+        RateLimiter::for('password-reset', function (Request $request) {
+            return [
+                Limit::perMinute(5)->by(
+                    'password-reset:ip:' . $request->ip()
                 ),
             ];
         });

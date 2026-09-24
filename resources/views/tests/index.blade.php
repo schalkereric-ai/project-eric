@@ -35,7 +35,10 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end">
-                                <a href="#" class="dropdown-item">
+                                <a
+                                    href="{{ route('profile.show') }}"
+                                    class="dropdown-item"
+                                >
                                     Mijn profiel
                                 </a>
 
@@ -48,7 +51,10 @@
                                 <form method="POST" action="/uitloggen">
                                     @csrf
 
-                                    <button type="submit" class="dropdown-item">
+                                    <button
+                                        type="submit"
+                                        class="dropdown-item"
+                                    >
                                         Uitloggen
                                     </button>
                                 </form>
@@ -56,7 +62,10 @@
                         </div>
                     @else
                         <div class="nav-item">
-                            <a href="/inloggen" class="btn btn-outline-primary">
+                            <a
+                                href="/inloggen"
+                                class="btn btn-outline-primary"
+                            >
                                 Inloggen
                             </a>
                         </div>
@@ -80,6 +89,7 @@
             </div>
         </header>
 
+
         {{-- Hero --}}
         <div class="page-wrapper">
 
@@ -102,6 +112,7 @@
                         <p class="text-secondary fs-2 mb-5">
                             Vind leuke evenementen en mensen om ze samen mee te beleven.
                         </p>
+
 
                         {{-- Zoekbalk --}}
                         <div class="card shadow-sm">
@@ -132,6 +143,7 @@
 
                 </div>
 
+
                 {{-- Categorieën --}}
                 <div class="mb-5">
 
@@ -154,7 +166,10 @@
 
                             <div class="col-6 col-md-4 col-lg-2">
 
-                                <a href="#" class="card card-link h-100 text-decoration-none">
+                                <a
+                                    href="#"
+                                    class="card card-link h-100 text-decoration-none"
+                                >
 
                                     <div class="card-body text-center py-4">
 
@@ -178,6 +193,7 @@
 
                 </div>
 
+
                 {{-- Voorbeeld evenementen --}}
                 <div id="events">
 
@@ -198,6 +214,7 @@
                         </a>
 
                     </div>
+
 
                     <div class="row row-cards">
 
@@ -261,7 +278,10 @@
 
                                     <div class="card-footer">
 
-                                        <a href="#" class="btn btn-primary w-100">
+                                        <a
+                                            href="#"
+                                            class="btn btn-primary w-100"
+                                        >
                                             Bekijk evenement
                                         </a>
 
@@ -276,6 +296,7 @@
                     </div>
 
                 </div>
+
 
                 {{-- Organiseren --}}
                 <div class="card bg-primary text-primary-fg mt-5">
@@ -314,6 +335,7 @@
             </div>
 
         </div>
+
 
         {{-- Footer --}}
         <footer class="footer footer-transparent d-print-none">

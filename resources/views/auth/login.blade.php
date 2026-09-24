@@ -31,9 +31,9 @@
     </header>
 
     <main class="flex-fill">
+
         <div class="container-tight py-5">
 
-            {{-- Titel --}}
             <div class="text-center mb-4">
 
                 <h1>
@@ -50,7 +50,6 @@
                 $loginLocked = $loginLockedSeconds > 0;
             @endphp
 
-            {{-- Algemene statusmelding --}}
             @if (session('status'))
                 <div class="alert alert-info mb-4" role="alert">
                     <div>
@@ -59,7 +58,6 @@
                 </div>
             @endif
 
-            {{-- Login geblokkeerd --}}
             @if ($loginLocked)
 
                 <div
@@ -97,7 +95,6 @@
 
             @endif
 
-            {{-- Loginformulier --}}
             <form
                 method="POST"
                 action="/inloggen"
@@ -114,7 +111,6 @@
                         @disabled($loginLocked)
                     >
 
-                        {{-- E-mailadres --}}
                         <div class="mb-3">
 
                             <label
@@ -135,7 +131,6 @@
                                 autocomplete="email"
                             >
 
-                            {{-- Alleen tonen als het géén lockout-melding is --}}
                             @if (!$loginLocked)
 
                                 @error('email')
@@ -148,7 +143,6 @@
 
                         </div>
 
-                        {{-- Wachtwoord --}}
                         <div class="mb-3">
 
                             <label
@@ -191,10 +185,9 @@
 
                         </div>
 
-                        {{-- Ingelogd blijven --}}
-                        <div class="mb-3">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
 
-                            <label class="form-check">
+                            <label class="form-check mb-0">
 
                                 <input
                                     type="checkbox"
@@ -208,9 +201,15 @@
 
                             </label>
 
+                            <a
+                                href="/wachtwoord-vergeten"
+                                class="text-decoration-none"
+                            >
+                                Wachtwoord vergeten?
+                            </a>
+
                         </div>
 
-                        {{-- Login knop --}}
                         <div class="form-footer">
 
                             <button
@@ -241,7 +240,6 @@
 
             </form>
 
-            {{-- Registreren --}}
             <div class="text-center text-secondary mt-3">
 
                 Nog geen account?
@@ -253,6 +251,7 @@
             </div>
 
         </div>
+
     </main>
 
     <footer class="footer footer-transparent mt-auto">
@@ -283,9 +282,6 @@
             const togglePassword =
                 document.getElementById('toggle-password');
 
-            /*
-             * Wachtwoord tonen/verbergen.
-             */
             if (togglePassword && password) {
 
                 togglePassword.addEventListener('click', function () {
@@ -310,16 +306,10 @@
 
             }
 
-            /*
-             * Geen actieve blokkering.
-             */
             if (!locked) {
                 return;
             }
 
-            /*
-             * Extra bescherming tegen submitten met Enter.
-             */
             form.addEventListener(
                 'submit',
                 function (event) {
@@ -331,9 +321,6 @@
                 true
             );
 
-            /*
-             * Enter blokkeren zolang de login geblokkeerd is.
-             */
             document.addEventListener(
                 'keydown',
                 function (event) {
@@ -349,9 +336,6 @@
                 true
             );
 
-            /*
-             * Countdown.
-             */
             const countdown =
                 document.getElementById('login-countdown');
 
